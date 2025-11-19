@@ -1,9 +1,12 @@
 const express = require('express');
+const path = require('path'); // We need this module to get the file path
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// This is the main route
 app.get('/', (req, res) => {
-  res.send('Hello, World! This is my CI/CD pipeline running on Google Cloud Run!');
+    // This sends the index.html file
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
